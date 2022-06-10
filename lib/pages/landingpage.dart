@@ -2,41 +2,59 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 
 class LandingPage extends StatelessWidget {
+  double _margin = 0;
+  double _width = 200;
+  //double _opacity = 1;
+  Color _colour = Colors.teal;
+  double _opacity = 1.0;
+  @override
+  void initState() {
+    Future.delayed(Duration(milliseconds: 300), () {
+      _opacity = 0.0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // create visuals here
-    // var mainAxisAlignment;
     return Scaffold(
-        // Material widget = piece of paper
-        appBar: AppBar(
-          title: const Text('See Me'),
+      // Material widget = piece of paper
+      appBar: AppBar(),
+      body: AnimatedOpacity(
+        child: FadeIn(
+          child: Container(
+            width: 600.0,
+            height: 600.0,
+            decoration: new BoxDecoration(
+                color: Color.fromRGBO(76, 175, 80, 1), shape: BoxShape.circle),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FadeIn(
+                    child: Center(
+                      child: Text(
+                        "Hi",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                            fontSize: 50, color: Colors.white),
+                      ),
+                    ),
+                    duration: Duration(seconds: 5),
+                    curve: Curves.easeIn,
+                  )
+                ]),
+          ),
+          duration: Duration(seconds: 3),
         ),
-        //body: Center(child: _widgetOptions.elementAt(_selectedIndex),
-        // ),
-        bottomNavigationBar:
-            BottomNavigationBar(items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Colors.teal),
-          BottomNavigationBarItem(
-              icon: const Icon(Icons.search),
-              label: 'Search',
-              backgroundColor: Colors.white),
-          BottomNavigationBarItem(
-              icon: const Icon(Icons.book),
-              label: 'Entry',
-              backgroundColor: Colors.teal),
-          BottomNavigationBarItem(
-              icon: const Icon(Icons.person),
-              label: 'You',
-              backgroundColor: Colors.teal)
-        ]
-                // currentIndex: _selectedIndex,
-                //selectedItemColor: Colors.teal,
-                //onTap: _onItemTapped,
-                ));
+        //margin: EdgeInsets.all(_margin),
+        //alignment: Alignment.center,
+        duration: Duration(seconds: 3),
+        opacity: _opacity,
+      ),
+    );
   }
 }
