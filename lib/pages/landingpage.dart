@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 
 class LandingPage extends StatelessWidget {
   double _margin = 0;
@@ -23,22 +24,31 @@ class LandingPage extends StatelessWidget {
       // Material widget = piece of paper
       appBar: AppBar(),
       body: AnimatedOpacity(
-        child: Container(
-          width: 600.0,
-          height: 600.0,
-          decoration: new BoxDecoration(
-              color: Color.fromRGBO(76, 175, 80, 1), shape: BoxShape.circle),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                    child: Text(
-                  "Hi",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.roboto(fontSize: 50),
-                ))
-              ]),
+        child: FadeIn(
+          child: Container(
+            width: 600.0,
+            height: 600.0,
+            decoration: new BoxDecoration(
+                color: Color.fromRGBO(76, 175, 80, 1), shape: BoxShape.circle),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FadeIn(
+                    child: Center(
+                      child: Text(
+                        "Hi",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                            fontSize: 50, color: Colors.white),
+                      ),
+                    ),
+                    duration: Duration(seconds: 5),
+                    curve: Curves.easeIn,
+                  )
+                ]),
+          ),
+          duration: Duration(seconds: 3),
         ),
         //margin: EdgeInsets.all(_margin),
         //alignment: Alignment.center,
