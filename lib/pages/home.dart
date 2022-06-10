@@ -40,8 +40,8 @@ class HomePage extends StatelessWidget {
               backgroundColor: Colors.teal)
         ]
                 // currentIndex: _selectedIndex,
-                //selectedItemColor: Colors.teal,
-                //onTap: _onItemTapped,
+                // selectedItemColor: Colors.teal,
+                // onTap: _onItemTapped,
                 ));
   }
 }
