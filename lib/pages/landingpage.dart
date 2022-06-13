@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
+import 'package:flutter_gradients/flutter_gradients.dart';
 
 class LandingPage extends StatelessWidget {
   double _margin = 0;
@@ -29,9 +30,9 @@ class LandingPage extends StatelessWidget {
             width: 600.0,
             height: 600.0,
             decoration: new BoxDecoration(
-                color: Color.fromRGBO(76, 175, 80, 1), shape: BoxShape.circle),
+                gradient: FlutterGradients.paloAlto(), shape: BoxShape.circle),
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FadeIn(

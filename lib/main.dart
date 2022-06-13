@@ -3,7 +3,8 @@ import './pages/landingpage.dart';
 
 void main() {
   // ignore: unnecessary_new
-  runApp(new MaterialApp(
-    home: new LandingPage(),
-  ));
+  runApp(MaterialApp(
+      home: LandingPage(),
+      theme: new ThemeData(
+          scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0))));
 }
